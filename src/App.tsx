@@ -1,40 +1,55 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
+import List from "./components/List"
+
+
+//una interface es un contrato que tiene que tener un objeto o una clase
+interface Sub {
+nick:string
+avatar: string 
+subMonths: number 
+description?: string
+}
+
+interface AppState {
+  subs: Array<Sub>
+  newSubsNumber: number
+}
+
+const INITIAL_STATE = [
+  {
+        nick: "elias",
+        subMonths: 3,
+        avatar: "https://i.pravatar.cc/150?u=elias",
+        description: "Dapelu its a moderador"
+      },
+      {
+        nick: "luke",
+        subMonths: 3,
+        avatar: "https://i.pravatar.cc/150?u=luke",
+      }
+]
 
 function App() {
-  const [subs, setSubs] = useState([
-    {
-      nick: "elias",
-      subMonths: 3,
-      avatar: "https://i.pravatar.cc/150?u=elias",
-      description: "Dapelu its a moderador"
-    },
-    {
-      nick: "luke",
-      subMonths: 3,
-      avatar: "https://i.pravatar.cc/150?u=luke",
-    }
-  ])
+
+  //le decimos que use la propiedad "subs" del AppState
+  const [subs, setSubs] = useState<AppState["subs"]>([])
+  const [newSubsNumer, setNewSubsNumer] = useState<AppState["newSubsNumber"]>(0)
+
+
+useEffect(() => {
+  setSubs(INITIAL_STATE)
+}, [])
+
 
   
   return (
     <div className="App">
       <h1>Luke Subs</h1>
-      <ul>
-        {
-          subs.map(sub =>{
-            return(
-              <li key={sub.nick}>
-                <img src={sub.avatar} />
-                <h4>{sub.nick} (<small>{sub.subMonths}</small>)</h4>
-                <p>{sub.description?.substring(0,100)}</p>
-              </li>
-            )
-          })
-        }
-      </ul>
+      <List subs={subs}/>
     </div>
   );
 }
 
 export default App;
+
