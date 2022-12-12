@@ -1,6 +1,16 @@
 import React from 'react'
 
-const List = () => {
+//pasamos la prop en una interface
+interface Props {
+   subs: Array <{
+    nick: string
+    avatar: string
+    subMonths: number
+    description?: string
+   }>
+}
+
+const List = ({subs}: Props) => {
   return (
     <ul>
         {
