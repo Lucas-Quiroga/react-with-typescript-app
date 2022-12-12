@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import List from "./components/List"
+import Form from './components/Form';
 
 
 //una interface es un contrato que tiene que tener un objeto o una clase
@@ -47,6 +48,7 @@ useEffect(() => {
     <div className="App">
       <h1>Luke Subs</h1>
       <List subs={subs}/>
+      <Form/>
     </div>
   );
 }
