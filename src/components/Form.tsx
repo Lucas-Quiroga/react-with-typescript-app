@@ -1,5 +1,12 @@
 import React, {useState} from 'react'
 
+interface FormState {
+    nick: string
+    subMonths: number
+    avatar: string
+    description: string
+}
+
 const Form = () => {
 
     const [inputValues, setInputValues] = useState({
