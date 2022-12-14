@@ -1,13 +1,9 @@
 import React from 'react'
+import { Sub } from '../types'
 
 //pasamos la prop en una interface
 interface Props {
-   subs: Array <{
-    nick: string
-    avatar: string
-    subMonths: number
-    description?: string
-   }>
+   subs: Array <Sub>
 }
 
 const List: React.FunctionComponent<Props> = ({subs}) => {
