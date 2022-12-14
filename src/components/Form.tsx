@@ -15,7 +15,6 @@ type FormReducerAction = {
     type: "clear"
 }
 
-
 const Form = ({onNewSub}: FormProps) => {
 
     const [inputValues, dispatch] = useNewSubForm()
