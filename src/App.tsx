@@ -30,7 +30,8 @@ function App() {
   const [subs, setSubs] = useState<AppState["subs"]>([])
   const [newSubsNumer, setNewSubsNumer] = useState<AppState["newSubsNumber"]>(0)
 
-  const divRef = useRef()
+  //useRef es un hook donde se puede guardar un valor que queda entre renderizados pero no va a causar un renderizado
+  const divRef = useRef<HTMLDivElement>(null)
 
 
 useEffect(() => {
@@ -42,7 +43,7 @@ useEffect(() => {
   }
   
   return (
-    <div className="App">
+    <div className="App" ref={divRef}>
       <h1>Luke Subs</h1>
       <List subs={subs}/>
       <Form onNewSub={handleNewSub}/>
