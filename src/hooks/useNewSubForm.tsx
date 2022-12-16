@@ -8,7 +8,7 @@ interface FormState {
 type FormReducerAction = {
     type: "change_value",
     payload: {
-        inputName: string,
+        inputName: string, 
         inputValue: string
     }
 } | {
